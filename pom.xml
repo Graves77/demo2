@@ -12,8 +12,7 @@
 	<description>weforward service</description>
 
 	<properties>
-		<git.username>dingxiaozhong</git.username>
-		<git.password>zhongge666</git.password>
+
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<scm>
