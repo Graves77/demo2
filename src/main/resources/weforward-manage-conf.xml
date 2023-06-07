@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 内部API接口配置文件 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context-2.5.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+
+    <bean id="manageFlusher"
+          class="cn.weforward.data.util.DelayFlusher" scope="singleton">
+        <constructor-arg index="0" value="5" />
+        <property name="name" value="manage" />
+    </bean>
+
+    <!-- 持久器集，用于互通多个DataHub中的对象，否则之间对象的引用在反射时将找不回 -->
+    <bean id="persisters"
+          class="cn.weforward.data.persister.support.SimplePersisterSet"
+          scope="singleton">
+    </bean>
+
+    <!-- 存储工厂 -->
+    <bean id="managePersisterFactory"
+          class="cn.weforward.data.mongodb.persister.MongodbPersisterFactory"
+          scope="singleton">
+        <constructor-arg index="0" value="${mongodb.url}" />
+        <constructor-arg index="1" value="${mongodb.dbname}" />
+        <property name="serverId" value="${weforward.serverid}" />
+        <property name="flusher" ref="manageFlusher" />
+    </bean>
+
+
+    <!-- Tapd需求与任务管理服务 -->
+    <bean id="manageService"
+          class="org.example.impl.ManageServiceImpl">
+        <constructor-arg index="0" ref="managePersisterFactory" />
+    </bean>
+
+
+
+</beans>
