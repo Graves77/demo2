@@ -54,7 +54,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>dxz0605_wf_demo</finalName>
+		<finalName>dxz0605_demo</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
