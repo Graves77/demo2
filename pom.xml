@@ -2,10 +2,13 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<packaging>jar</packaging>
-
+	<scm>
+		<url>https://gitlab.intranet.ruixiude.com:10443/ptgl/rxd-open/tryandtest.git</url>
+		<tag>https://gitlab.intranet.ruixiude.com:10443/ptgl/rxd-open/tryandtest.git</tag>
+	</scm>
 	<groupId>org.example</groupId>
 	<artifactId>demo2</artifactId>
-	<version>1.0.1.20230607</version>
+	<version>1.0.1.20230607M</version>
 
 	<name>demo2</name>
 	<url>http://weforward.cn</url>
@@ -15,12 +18,7 @@
 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	<scm>
-		<url>https://gitlab.intranet.ruixiude.com:10443/ptgl/rxd-open/tryandtest.git</url>
-		<tag>https://gitlab.intranet.ruixiude.com:10443/ptgl/rxd-open/tryandtest.git</tag>
 
-
-	</scm>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
